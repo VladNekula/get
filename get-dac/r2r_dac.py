@@ -27,7 +27,7 @@ class R2R_DAC:
         if self.verbose:
             print(f"Число: {number}, биты: {binary}")
 
-    def set_voltage(self, svoltage):
+    def set_voltage(self, voltage):
         if not (0.0 <= voltage <= self.dynamic_range):
             print("Напряжение вне диапазона")
             return
@@ -37,7 +37,7 @@ class R2R_DAC:
 
 if __name__ == "__main__":
     try:
-        dac = R2R_DAC([16, 20, 21, 25, 26, 17, 27, 22], 3.17, True)
+        dac = R2R_DAC([16, 20, 21, 25, 26, 17, 27, 22], 3.16, True)
 
         while True:
             try:

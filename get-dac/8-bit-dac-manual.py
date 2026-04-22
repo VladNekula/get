@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 
 dac_bits = [16, 20, 21, 25, 26, 17, 27, 22]
-dynamic_range = 3.16
+dynamic_range = 3.158
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(dac_bits, GPIO.OUT, initial=0)

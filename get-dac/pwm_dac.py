@@ -23,12 +23,15 @@ class PWM_DAC:
 
 if __name__ == "__main__":
     try:
-        dac = PWM_DAC(12, 500, 3.3)
+        dac = PWM_DAC(12, 500, 3.17)
         while True:
             try:
                 v = float(input("Введите напряжение: "))
+                if (v < 0 or v > 3.17):
+                    print("Напряжение выходит за динамический диапазон ЦАП (0.00 - 3,17)")
+                    continue
                 dac.set_voltage(v)
             except ValueError:
-                print("Ошибка")
+                print("Вы ввели не число. Попробуйте еще раз")
     finally:
         dac.deinit()
