@@ -5,6 +5,8 @@ amp = 5.0
 freq = 10
 fs = 1000
 
+dac = None
+
 try:
     dac = mcp.MCP4725(5.0)
 
@@ -12,14 +14,16 @@ try:
     dt = 1 / fs
 
     while True:
-        period = 1 / freq
-        x = (t % period) / period
-        val = 2*x if x < 0.5 else 2*(1-x)
+        val = abs(2 * (t * freq - int(t * freq + 0.5)))
+        voltage = val * amp
 
-        dac.set_voltage(val * amp)
+        voltage = max(0, min(voltage, 5.0))
+
+        dac.set_voltage(voltage)
 
         time.sleep(dt)
         t += dt
 
 finally:
-    dac.deinit()
+    if dac:
+        dac.deinit()
