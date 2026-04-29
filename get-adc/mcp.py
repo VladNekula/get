@@ -7,7 +7,7 @@ adc = MCP3021(dynamic_range=3.3)
 voltage_values = []
 time_values = []
 duration = 3.0
-
+   
 try:
     start = time.time()
 

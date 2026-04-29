@@ -13,10 +13,10 @@ class MCP3021:
     def get_number(self):
         data = self.bus.read_word_data(self.address, 0)
 
-        lower = data » 8
+        lower = data >> 8
         upper = data & 0xFF
 
-        number = (upper « 6) | (lower » 2)
+        number = (upper << 6) | (lower >> 2)
 
         if self.verbose:
             print(f"Data: {data}, upper: {upper:x}, lower: {lower:x}, number: {number}")

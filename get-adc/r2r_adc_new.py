@@ -26,7 +26,7 @@ class R2R_ADC:
         value = 0
 
         for bit in range(7, -1, -1):
-            trial = value | (1 « bit)
+            trial = value | (1 << bit)
             self.number_to_dac(trial)
             time.sleep(self.compare_time)
 

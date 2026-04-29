@@ -2,9 +2,9 @@ import time
 import math
 import mcp4725_driver as mcp
 
-amp = 5.0
+amp = 4
 freq = 10
-fs = 1000
+fs = 1500
 
 dac = None
 
