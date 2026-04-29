@@ -2,7 +2,7 @@ import time
 import mcp4725_driver as mcp
 
 amp = 5.0
-freq = 10
+freq = 5
 fs = 1000
 
 dac = None
@@ -14,9 +14,10 @@ try:
     dt = 1 / fs
 
     while True:
+        # правильный треугольный сигнал
         val = abs(2 * (t * freq - int(t * freq + 0.5)))
-        voltage = val * amp
 
+        voltage = val * amp
         voltage = max(0, min(voltage, 5.0))
 
         dac.set_voltage(voltage)

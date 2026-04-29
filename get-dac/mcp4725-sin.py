@@ -18,6 +18,7 @@ try:
         val = (math.sin(2 * math.pi * freq * t) + 1) / 2
         voltage = val * amp
 
+        # защита диапазона
         voltage = max(0, min(voltage, 5.0))
 
         dac.set_voltage(voltage)
