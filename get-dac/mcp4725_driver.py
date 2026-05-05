@@ -18,11 +18,11 @@ class MCP4725:
             print("Вне диапазона")
             return
 
-        high = (n » 8) & 0x0F
+        high = (n >> 8) & 0x0F
         low = n & 0xFF
 
         # правильная команда для MCP4725
-        self.bus.write_i2c_block_data(self.addr, 0x40, [high « 4, low])
+        self.bus.write_i2c_block_data(self.addr, 0x40, [high << 4, low])
 
     def set_voltage(self, v):
         if not isinstance(v, (int, float)):

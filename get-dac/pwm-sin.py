@@ -2,9 +2,9 @@ import time
 import math
 import pwm_dac as pwm
 
-amp = 3.2
+amp = 4
 freq = 10
-fs = 1000
+fs = 2000
 
 dac = None
 

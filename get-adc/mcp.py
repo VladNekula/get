@@ -6,13 +6,15 @@ adc = MCP3021(dynamic_range=3.3)
 
 voltage_values = []
 time_values = []
-duration = 3.0
+duration = 5.0
 
 try:
     start = time.time()
 
     while time.time() - start < duration:
-        voltage_values.append(adc.get_voltage())
+        voltage = adc.get_voltage()
+
+        voltage_values.append(voltage)
         time_values.append(time.time() - start)
 
     plot_voltage_vs_time(time_values, voltage_values, 3.3)
